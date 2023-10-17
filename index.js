@@ -18,7 +18,10 @@ app.use(cors({ origin: 'http://localhost:5173' }))
 
 app.use('/api/notes', notesRoute);
 
+
 app.use(notFound);
 app.use(errorHandler);
 
 app.listen(PORT, () => console.log(`Server started listening on ${PORT}.....`))
+
+export default app;
