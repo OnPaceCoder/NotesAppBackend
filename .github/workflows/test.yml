@@ -1,6 +1,7 @@
 name: Notes test cases
 
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
   test:
