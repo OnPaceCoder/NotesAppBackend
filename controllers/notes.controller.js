@@ -15,7 +15,7 @@ const addNotes = async (req, res, next) => {
     })
 
     if (note) {
-        res.status(201).json({ title: note.title, description: note.description })
+        res.status(201).json(note)
     }
     else {
         res.status(400).json({ error: "Invalid user data" })
@@ -47,10 +47,7 @@ const updateNotes = async (req, res, next) => {
         notes.description = description ? description : notes.description;
 
         const updatedNotes = await notes.save()
-        res.status(200).json({
-            title: updatedNotes.title,
-            description: updatedNotes.description
-        })
+        res.status(200).json(updatedNotes)
 
     } else {
         res.status(404);
