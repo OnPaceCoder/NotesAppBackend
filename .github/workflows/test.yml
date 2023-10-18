@@ -6,6 +6,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -17,9 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Set MongoDB connection string
-        run: echo "MONGO_URI=$MONGO_URI" >> .env
 
       - name: Run tests
         run: npm test
