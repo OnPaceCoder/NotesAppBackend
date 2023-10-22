@@ -1,0 +1,15 @@
+services:
+  mongodbi_db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+  notesbackend:
+    build: ./
+    ports:
+      - "5000:5000"
+
+volumes:
+  mongodb-data:
